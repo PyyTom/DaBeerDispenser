@@ -1,0 +1,42 @@
+<Admin>:
+    name:'admin'
+    GridLayout:
+        cols:2
+        Label:
+            color:'black'
+            font_size:50
+            text:'NAME: '
+        TextInput:
+            id:name
+            multiline:False
+            font_size:50
+        Label:
+            color:'black'
+            font_size:50
+            text:'PRICE PER LITER: '
+        TextInput:
+            id:price
+            multiline:False
+            font_size:50
+        Label:
+            color:'black'
+            font_size:50
+            text:'FLOW VOLUME: '
+        TextInput:
+            id:flow_volume
+            multiline:False
+            font_size:50
+        Label:
+            color:'black'
+            font_size:50
+            text:'LOAD: '
+        TextInput:
+            id:load
+            multiline:False
+            font_size:50
+        Button:
+            text:'BACK'
+            on_press:root.back()
+        Button:
+            text:'SAVE'
+            on_press:root.save(name,price,flow_volume,load)

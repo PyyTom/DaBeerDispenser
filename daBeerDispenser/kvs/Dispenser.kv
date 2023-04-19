@@ -1,0 +1,50 @@
+#:include kvs/Admin.kv
+#:import Button kivy.uix.button.Button
+<Dispenser>:
+    name:'dispenser'
+    BoxLayout:
+        orientation:'vertical'
+        BoxLayout:
+            size_hint_y:None
+            height:300
+            Button:
+                size_hint_x:.2
+                background_normal:'icons/TL.jpg'
+                on_press:app.tl()
+            Button:
+                size_hint_x:.2
+                background_normal:'icons/daBeerDispenser.png'
+                on_press:app.daBeerDispenser()
+            Button:
+                size_hint_x:.2
+                background_normal:'icons/RViewer.png'
+                on_press:app.rviewer()
+            Button:
+                size_hint_x:.2
+                background_normal:'icons/Admin.png'
+                on_press:app.admin()
+            Button:
+                size_hint_x:.2
+                background_normal:'icons/off.jpeg'
+                on_press:app.xit()
+        BoxLayout:
+            orientation:'vertical'
+            on_parent:
+                [self.add_widget(Button(ids={i[0]:i[1]},text='BRAND: '+str(i[1])+'\nPRICE PER LITER: '+str(i[2]),
+                on_press=lambda x,j=i:root.tap_open(j))) for i in app.beers]
+        Button:
+            id:close
+            text:'CLOSE TAP'
+            #on_press:root.tap_close()
+        BoxLayout:
+            height:300
+            Label:
+                id:open_time_label
+                color:'black'
+            Label:
+                id:close_time_label
+                color:'black'
+            Label:
+                id:bill_label
+                color:'black'
+    #Admin:
